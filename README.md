@@ -26,7 +26,7 @@ A minimal personal writing platform built with SvelteKit and MongoDB. Write essa
 | Database | [MongoDB](https://www.mongodb.com) via [Mongoose](https://mongoosejs.com) |
 | Styling | [Tailwind CSS](https://tailwindcss.com) + [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin) |
 | Markdown | [marked](https://marked.js.org) |
-| Sanitization | [isomorphic-dompurify](https://github.com/kkomelin/isomorphic-dompurify) |
+| Sanitization | [sanitize-html](https://github.com/apostrophecms/sanitize-html) |
 | Auth | bcryptjs + cookie-based sessions |
 | Rate limiting | [sveltekit-rate-limiter](https://github.com/ciscoheat/sveltekit-rate-limiter) |
 | Deployment | Vercel |

@@ -1,5 +1,5 @@
 import { marked } from 'marked';
-import DOMPurify from 'isomorphic-dompurify';
+import sanitizeHtml from 'sanitize-html';
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -105,7 +105,7 @@ export function parseImageShortcodes(content) {
  * Idempotent: same input always produces same output.
  *
  * Pipeline:
- *   content → parseImageShortcodes → marked.parse → DOMPurify.sanitize → safeHtml
+ *   content → parseImageShortcodes → marked.parse → sanitizeHtml → safeHtml
  *
  * @param {string} content
  * @returns {string}
@@ -113,5 +113,14 @@ export function parseImageShortcodes(content) {
 export function renderMarkdown(content) {
   const expanded = parseImageShortcodes(content);
   const rawHtml = marked.parse(expanded, { async: false });
-  return DOMPurify.sanitize(rawHtml);
+  return sanitizeHtml(rawHtml, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      'img', 'figure', 'figcaption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    ]),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      img: ['src', 'alt', 'class', 'title'],
+      '*': ['class'],
+    },
+  });
 }

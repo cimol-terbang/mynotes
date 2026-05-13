@@ -1,4 +1,4 @@
-import DOMPurify from 'isomorphic-dompurify';
+import sanitizeHtml from 'sanitize-html';
 
 /**
  * Sanitizes comment content to prevent XSS.
@@ -8,7 +8,7 @@ import DOMPurify from 'isomorphic-dompurify';
  * @returns {string}
  */
 export function sanitizeCommentContent(content) {
-  const stripped = DOMPurify.sanitize(content, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
+  const stripped = sanitizeHtml(content, { allowedTags: [], allowedAttributes: {} });
   return stripped.replace(/javascript:/gi, '').replace(/data:/gi, '');
 }
 

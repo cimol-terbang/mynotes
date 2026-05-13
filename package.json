@@ -28,9 +28,9 @@
   "type": "module",
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "isomorphic-dompurify": "^3.12.0",
     "marked": "^18.0.3",
     "mongoose": "^8.0.0",
+    "sanitize-html": "^2.13.1",
     "slugify": "^1.6.9",
     "sveltekit-rate-limiter": "^0.7.0"
   }
