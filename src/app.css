@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  body {
+    @apply text-base leading-relaxed;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', Georgia, serif;
+  }
+
+  *, *::before, *::after {
+    transition-property: color, background-color, border-color, opacity, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+
+  svg, img, video {
+    transition: none;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Dark mode: deep purple background with subtle radial glow */
+  .dark-bg {
+    background-color: #0f0720;
+    background-image:
+      radial-gradient(ellipse 80% 40% at 50% -10%, rgba(139,92,246,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 30% at 80% 100%, rgba(109,40,217,0.10) 0%, transparent 50%);
+  }
+
+  /* Grain texture */
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px;
+    z-index: 9998;
+  }
+
+  /* Glowing purple border for dark mode cards */
+  .dark .glow-border {
+    border-color: rgba(167,139,250,0.15);
+    box-shadow: 0 0 0 1px rgba(139,92,246,0.08), 0 4px 24px rgba(109,40,217,0.08);
+  }
+
+  /* Purple text glow */
+  .dark .text-glow {
+    text-shadow: 0 0 20px rgba(167,139,250,0.4);
+  }
+
+  /* Floating orb decorations */
+  .orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    pointer-events: none;
+    opacity: 0.12;
+  }
+}
+
+/* ===== Insert Picture: Image size classes ===== */
+.img-small  { width: 25%; }
+.img-medium { width: 50%; }
+.img-large  { width: 75%; }
+.img-full   { width: 100%; }
+
+/* Responsif: gambar tidak melebihi lebar kontainer */
+img { max-width: 100%; height: auto; }
+figure { margin: 1rem 0; }
+figcaption { font-size: 0.875rem; color: #6b7280; text-align: center; margin-top: 0.25rem; }
