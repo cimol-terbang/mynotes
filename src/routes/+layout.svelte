@@ -19,9 +19,12 @@
 
       <!-- Logo -->
       <a href="/" class="group flex items-center gap-2 shrink-0">
-        <!-- Crescent moon icon -->
+        <!-- Open book icon -->
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-accent dark:text-violet-DEFAULT" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" opacity="0.9"/>
+          <path d="M2 6.5C2 6.5 5 5 8 5c2 0 4 1 4 1s2-1 4-1c3 0 6 1.5 6 1.5V19s-3-1.5-6-1.5c-2 0-4 1-4 1s-2-1-4-1c-3 0-6 1.5-6 1.5V6.5z" fill="currentColor" opacity="0.15"/>
+          <path d="M12 6s-2-1-4-1C5 5 2 6.5 2 6.5V19s3-1.5 6-1.5c2 0 4 1 4 1V6z" fill="currentColor" opacity="0.5"/>
+          <path d="M12 6s2-1 4-1c3 0 6 1.5 6 1.5V19s-3-1.5-6-1.5c-2 0-4 1-4 1V6z" fill="currentColor" opacity="0.9"/>
+          <line x1="12" y1="6" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <span class="text-accent dark:text-violet-light font-serif text-lg sm:text-xl font-semibold tracking-tight group-hover:opacity-80 transition-opacity">
           My Notes
